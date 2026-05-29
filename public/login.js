@@ -10,7 +10,7 @@ document
     const password =
         document.getElementById('password').value;
 
-    fetch('http://localhost:5000/login', {
+    fetch('/login', {
 
         method: 'POST',
 

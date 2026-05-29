@@ -1,4 +1,4 @@
-fetch('http://localhost:5000/dashboard')
+fetch('/dashboard')
 .then(response => response.json())
 .then(data => {
 
@@ -15,8 +15,7 @@ fetch('http://localhost:5000/dashboard')
 .catch(error => {
     console.log(error);
 });
-fetch('http://localhost:5000/farmers')
-.then(response => response.json())
+fetch('/farmers').then(response => response.json())
 .then(data => {
 
     document.getElementById('farmerCount').innerText = data.length;
@@ -41,7 +40,7 @@ fetch('http://localhost:5000/farmers')
 .catch(error => {
     console.log(error);
 });
-fetch('http://localhost:5000/milk')
+fetch('/milk')
 .then(response => response.json())
 .then(data => {
 
@@ -68,7 +67,7 @@ fetch('http://localhost:5000/milk')
 .catch(error => {
     console.log(error);
 });
-fetch('http://localhost:5000/milk-trends')
+fetch('/milk-trends')
 .then(response => response.json())
 .then(data => {
 
@@ -116,7 +115,7 @@ document
         phone: document.getElementById('phone').value
     };
 
-    fetch('http://localhost:5000/farmers', {
+    fetch('/farmers', {
 
         method: 'POST',
 
@@ -170,7 +169,7 @@ document
             document.getElementById('date').value
     };
 
-    fetch('http://localhost:5000/milk', {
+    fetch('/milk', {
 
         method: 'POST',
 
