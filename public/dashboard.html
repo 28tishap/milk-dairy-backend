@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Amul Dairy Lite Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <h2>Amul Dairy Lite</h2>
+
+        <ul>
+
+            <li onclick="scrollToSection('dashboard')">
+                Dashboard
+            </li>
+
+            <li onclick="scrollToSection('farmers')">
+                Farmers
+            </li>
+
+            <li onclick="scrollToSection('milk-records')">
+                Milk Records
+            </li>
+
+            <li onclick="scrollToSection('analytics')">
+                Analytics
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <h1>Dairy Management Dashboard</h1>
+<p id="welcomeUser"></p>
+
+        </div>
+
+        <!-- DASHBOARD CARDS -->
+
+        <div class="cards-container" id="dashboard">
+
+            <div class="card">
+
+                <h3>Total Farmers</h3>
+
+                <p id="farmerCount">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Total Milk</h3>
+
+                <p id="milkTotal">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Total Payments</h3>
+
+                <p id="paymentTotal">0</p>
+
+            </div>
+
+        </div>
+
+        <!-- FORMS SECTION -->
+
+        <div class="form-section" id="farmers">
+<input type="text"
+       id="searchFarmer"
+       placeholder="Search Farmer..."
+       class="search-box">
+
+            <!-- ADD FARMER -->
+
+            <div class="form-box">
+
+                <h2>Add Farmer</h2>
+
+                <form id="farmerForm">
+
+                    <input type="text"
+                           id="name"
+                           placeholder="Farmer Name"
+                           required>
+
+                    <input type="text"
+                           id="village"
+                           placeholder="Village"
+                           required>
+
+                    <input type="text"
+                           id="phone"
+                           placeholder="Phone Number"
+                           required>
+
+                    <button type="submit">
+                        Add Farmer
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- ADD MILK ENTRY -->
+
+            <div class="form-box">
+
+                <h2>Add Milk Entry</h2>
+
+                <form id="milkForm">
+
+                    <input type="number"
+                           id="farmer_id"
+                           placeholder="Farmer ID"
+                           required>
+
+                    <input type="number"
+                           step="0.1"
+                           id="quantity"
+                           placeholder="Milk Quantity"
+                           required>
+
+                    <input type="number"
+                           step="0.1"
+                           id="fat"
+                           placeholder="Fat Percentage"
+                           required>
+
+                    <input type="number"
+                           step="0.1"
+                           id="snf"
+                           placeholder="SNF Percentage"
+                           required>
+
+                    <select id="shift" required>
+
+                        <option value="">
+                            Select Shift
+                        </option>
+
+                        <option value="Morning">
+                            Morning
+                        </option>
+
+                        <option value="Evening">
+                            Evening
+                        </option>
+
+                    </select>
+
+                    <input type="date"
+                           id="date"
+                           required>
+
+                    <button type="submit">
+                        Add Milk Entry
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- ANALYTICS SECTION -->
+
+        <div class="chart-container" id="analytics">
+
+            <h2>Milk Collection Analytics</h2>
+
+            <canvas id="milkChart"></canvas>
+
+        </div>
+
+        <!-- FARMERS TABLE -->
+
+        <div class="table-section">
+
+            <h2>Farmers Data</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Name</th>
+
+                        <th>Village</th>
+
+                        <th>Phone</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="farmersTable"></tbody>
+
+            </table>
+
+        </div>
+
+        <!-- MILK RECORDS TABLE -->
+
+        <div class="table-section" id="milk-records">
+
+            <h2>Milk Collection Records</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Farmer</th>
+
+                        <th>Quantity</th>
+
+                        <th>Fat %</th>
+
+                        <th>SNF %</th>
+
+                        <th>Shift</th>
+
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="milkTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
